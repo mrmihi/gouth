@@ -1,10 +1,20 @@
 package routes
 
 import (
-	"github.com/gorilla/mux"
 	"gouth/controllers"
+	"net/http"
 )
 
-func RegisterAuthRoutes(r *mux.Router) {
-	r.HandleFunc("/signup", controllers.SignUp).Methods("POST")
+func RegisterRoutes() {
+	// Root health check
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		w.Write([]byte("All GOOD!"))
+	})
+
+	// Signup endpoint
+	http.HandleFunc("/signup", controllers.SignUp)
 }

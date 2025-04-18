@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 	"gouth/routes" // Update this if your module name is different
 )
@@ -34,15 +33,8 @@ func main() {
 	}
 
 	// Initialize router
-	router := mux.NewRouter()
+	routes.RegisterRoutes()
 
-	// Root health check route
-	router.Handle("/", respond()).Methods("GET")
-
-	// Register /signup route
-	routes.RegisterAuthRoutes(router)
-
-	// Start server
-	fmt.Printf("Server running on http://localhost:%s\n", port)
-	log.Fatal(http.ListenAndServe(":"+port, router))
+	fmt.Printf("🚀 Server running at http://localhost:%s\n", port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
