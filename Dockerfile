@@ -24,7 +24,7 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
 
 # Copy the binary from the builder
-COPY --from=builder /app/server /server
+COPY --from=builder /src/server /server
 
 # Expose the port (not strictly required by Cloud Run, but useful for local tests)
 EXPOSE 9001
