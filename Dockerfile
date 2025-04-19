@@ -3,7 +3,7 @@
 FROM golang:1.20-alpine AS builder
 
 # Create and set working directory inside the container
-WORKDIR /app
+WORKDIR /src
 
 # Copy go.mod and go.sum files first (better for build caching)
 COPY go.mod go.sum ./
