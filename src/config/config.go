@@ -3,6 +3,7 @@ package config
 import (
 	"github.com/gofiber/fiber/v2/log"
 	"github.com/spf13/viper"
+	"os"
 )
 
 type Config struct {
@@ -30,11 +31,12 @@ func load() *Config {
 	//viper.SetConfigFile(".env")
 	//_ = viper.ReadInConfig()
 
-	//setDefaults()
+	setDefaults()
 
 	var cfg Config
 	if err := viper.Unmarshal(&cfg); err != nil {
 		log.Fatal(err)
 	}
+	cfg.MongoConnectionString = os.Getenv("MONGO_CONNECTION_STRING")
 	return &cfg
 }
