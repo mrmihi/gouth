@@ -17,7 +17,7 @@ An API for a restaurant that operates with Square POS.
 - Language: Go Lang
 - Repo: https://github.com/mrmihi/gouth
 - Cloud: GCloud
-- Compute Service: Cloud Run
+- Compute Service: Cloud Run & GKE
 - Build Service: Cloud Build
 - Container Registry: Artifact Registry
 - Containerization: Docker
