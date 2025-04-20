@@ -1,4 +1,5 @@
 # Gouth
+Simple Go Microservice
 
 ## Description
 An API for a restaurant that operates with Square POS.
