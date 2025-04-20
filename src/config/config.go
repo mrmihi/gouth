@@ -20,7 +20,7 @@ func Load() {
 }
 
 func setDefaults() {
-	viper.SetDefault("PORT", "8080")
+	viper.SetDefault("PORT", "9001")
 	viper.SetDefault("SQUARE_UP_BASE_URL", "https://connect.squareupsandbox.com/v2")
 }
 
