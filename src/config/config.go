@@ -24,18 +24,17 @@ func setDefaults() {
 	viper.SetDefault("SQUARE_UP_BASE_URL", "https://connect.squareupsandbox.com/v2")
 }
 
-func load() (config *Config) {
-	viper.AddConfigPath(".")
-	viper.SetConfigName(".env")
-	viper.SetConfigType("env")
+func load() *Config {
+	viper.AutomaticEnv()
+
+	viper.SetConfigFile(".env")
+	_ = viper.ReadInConfig()
 
 	setDefaults()
 
-	if err := viper.ReadInConfig(); err != nil {
-		log.Fatal("Error reading env file", err)
-	}
-	if err := viper.Unmarshal(&config); err != nil {
+	var cfg Config
+	if err := viper.Unmarshal(&cfg); err != nil {
 		log.Fatal(err)
 	}
-	return
+	return &cfg
 }
