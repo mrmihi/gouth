@@ -60,5 +60,5 @@ func main() {
 
 	app.Mount("/api", modules.New())
 
-	log.Fatal(app.Listen(fmt.Sprintf(":%s", "9001")))
+	log.Fatal(app.Listen(fmt.Sprintf(":%s", config.Env.Port)))
 }
