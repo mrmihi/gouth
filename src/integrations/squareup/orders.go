@@ -11,7 +11,7 @@ import (
 func (order *Order) fromModel(m models.Order) {
 
 	order.IdempotencyKey = uuid.NewString()
-	order.Order.LocationID = "L64JNY26EYBXF"
+	order.Order.LocationID = "L6CVAW17V1WSK"
 
 	for _, item := range m.Items {
 		orderItem := OrderLineItem{

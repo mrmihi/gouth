@@ -38,5 +38,6 @@ func load() *Config {
 		log.Fatal(err)
 	}
 	cfg.MongoConnectionString = os.Getenv("MONGO_CONNECTION_STRING")
+	cfg.SquareUpUrl = os.Getenv("SQUARE_UP_BASE_URL")
 	return &cfg
 }
