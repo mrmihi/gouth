@@ -1,6 +1,6 @@
 # Start from the official Go image.
 # Using an Alpine-based image is common for smaller footprints.
-FROM golang:1.20-alpine AS builder
+FROM golang:1.24-alpine AS builder
 
 # Create and set working directory inside the container
 WORKDIR /src
@@ -13,7 +13,7 @@ RUN go mod download
 COPY . .
 
 # Build the Go binary
-RUN go build -o server .
+RUN go build -o server ./src
 
 # Now create a small final image
 FROM alpine:latest
