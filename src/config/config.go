@@ -27,10 +27,10 @@ func setDefaults() {
 func load() *Config {
 	viper.AutomaticEnv()
 
-	viper.SetConfigFile(".env")
-	_ = viper.ReadInConfig()
+	//viper.SetConfigFile(".env")
+	//_ = viper.ReadInConfig()
 
-	setDefaults()
+	//setDefaults()
 
 	var cfg Config
 	if err := viper.Unmarshal(&cfg); err != nil {
