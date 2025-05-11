@@ -38,3 +38,5 @@ An API for a restaurant that operates with Square POS.
 - Run `air` to start the development server with hot reloading
 
 - Optionally, run `pnpm install` to set up git hooks
+
+# Testing the CI/CD Pipeline
